@@ -35,7 +35,6 @@ Real Sales Header / Sales Line
 - User-friendly List + Card pages for review and conversion
 - One-click conversion to **Sales Order** or **Sales Quotation**
 - Proper permission set
-- Clean folder structure, ready for GitHub
 
 ---
 
@@ -132,18 +131,6 @@ BC-TempSalesImportAPI/
     └── Permissions/
         └── PermissionSet50100.TempSalesImportAPI.al
 ```
-
----
-
-## Getting Started (for your own GitHub)
-
-1. Create a new repository on GitHub (e.g. `BC-TempSalesImportAPI`)
-2. Clone it locally
-3. Copy all files from this project into the repo
-4. Open in VS Code + AL Language extension
-5. Download symbols → Publish
-
----
 
 ## License
 
