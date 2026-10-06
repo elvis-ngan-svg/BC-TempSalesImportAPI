@@ -1,0 +1,156 @@
+# Business Central – Temp Sales Order Import API
+
+A clean, production-ready **Custom API + Staging Table** solution for Microsoft Dynamics 365 Business Central.
+
+---
+
+## Business Flow
+
+```
+External System (cleaned data)
+        │
+        ▼  POST (Custom API)
+┌─────────────────────────────┐
+│  Temp Sales Header + Lines  │  ← Staging Tables
+│  Status: New → Ready        │
+└─────────────────────────────┘
+        │
+        ▼  Manual action by user
+┌─────────────────────────────┐ 
+│  Create Sales Order         │
+│  or Create Sales Quote      │
+└─────────────────────────────┘
+        │
+        ▼
+Real Sales Header / Sales Line
+(Status becomes Processed)
+```
+
+---
+
+## Features
+
+- Custom OData API (`PageType = API`) for importing Header + Lines in one request
+- Staging tables (`Temp Sales Header` / `Temp Sales Line`) with status workflow
+- User-friendly List + Card pages for review and conversion
+- One-click conversion to **Sales Order** or **Sales Quotation**
+- Proper permission set
+- Clean folder structure, ready for GitHub
+
+---
+
+## API Endpoint
+
+After publishing the extension:
+
+```
+POST https://api.businesscentral.dynamics.com/v2.0/{tenant}/{environment}/api/elvisngan/import/v1.0/companies({companyId})/tempSalesHeaders
+```
+
+### Example Request Body (Header + Lines)
+
+```json
+{
+  "externalDocumentNo": "EXT-2025-001",
+  "sellToCustomerNo": "10000",
+  "sellToCustomerName": "Adatum Corporation",
+  "orderDate": "2025-10-06",
+  "documentDate": "2025-10-06",
+  "currencyCode": "",
+  "tempSalesLines": [
+    {
+      "lineNo": 10000,
+      "type": "Item",
+      "number": "1896-S",
+      "description": "ATHENS Desk",
+      "quantity": 2,
+      "unitPrice": 1000,
+      "lineDiscountPercent": 0,
+      "locationCode": ""
+    },
+    {
+      "lineNo": 20000,
+      "type": "Item",
+      "number": "1900-S",
+      "description": "PARIS Guest Chair, black",
+      "quantity": 4,
+      "unitPrice": 192.8,
+      "lineDiscountPercent": 5,
+      "locationCode": ""
+    }
+  ]
+}
+```
+
+---
+
+## Objects Included
+
+| Type       | ID    | Name                        | Description                          |
+|------------|-------|-----------------------------|--------------------------------------|
+| Table      | 50110 | Temp Sales Header           | Staging header                       |
+| Table      | 50111 | Temp Sales Line             | Staging lines                        |
+| Page (API) | 50120 | Temp Sales Header API       | Main import endpoint                 |
+| Page (API) | 50121 | Temp Sales Line API         | Lines endpoint                       |
+| Page       | 50130 | Temp Sales Order List       | User review list                     |
+| Page       | 50131 | Temp Sales Order Card       | User review card                     |
+| Page       | 50132 | Temp Sales Lines Subpage    | Lines on card                        |
+| Codeunit   | 50120 | Temp Sales Order Mgt        | Conversion logic                     |
+| Permission | 50100 | Temp Sales Import API       | Assignable permission set            |
+
+---
+
+## How to Use
+
+1. **Publish** the extension to your BC Sandbox / Environment
+2. Assign the permission set **Temp Sales Import API** to the relevant users / service principals
+3. Call the API from Postman / Azure Logic Apps / Power Automate / custom app
+4. Open **Temp Sales Orders** page in BC
+5. Review data → **Mark as Ready** → **Create Sales Order** or **Create Sales Quote**
+
+---
+
+## Project Structure
+
+```
+BC-TempSalesImportAPI/
+├── app.json
+├── README.md
+├── .gitignore
+└── src/
+    ├── Tables/
+    │   ├── Tab50110.TempSalesHeader.al
+    │   └── Tab50111.TempSalesLine.al
+    ├── Pages/
+    │   ├── Pag50120.TempSalesHeaderAPI.al
+    │   ├── Pag50121.TempSalesLineAPI.al
+    │   ├── Pag50130.TempSalesOrderList.al
+    │   ├── Pag50131.TempSalesOrderCard.al
+    │   └── Pag50132.TempSalesLinesSubpage.al
+    ├── Codeunits/
+    │   └── Cod50120.TempSalesOrderMgt.al
+    └── Permissions/
+        └── PermissionSet50100.TempSalesImportAPI.al
+```
+
+---
+
+## Getting Started (for your own GitHub)
+
+1. Create a new repository on GitHub (e.g. `BC-TempSalesImportAPI`)
+2. Clone it locally
+3. Copy all files from this project into the repo
+4. Open in VS Code + AL Language extension
+5. Download symbols → Publish
+
+---
+
+## License
+
+MIT – free to use for learning and portfolio purposes.
+
+---
+
+**Author**: Elvis Ngan  
+**GitHub**: [ElvisNgan](https://github.com/ElvisNgan)  
+**Role**: Dynamics 365 Business Central Developer  

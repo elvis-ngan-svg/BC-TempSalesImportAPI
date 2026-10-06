@@ -1,0 +1,17 @@
+# AL / Business Central
+.alpackages/
+.snapshots/
+.vscode/
+*.app
+*.g.al
+rad.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.suo
+*.user
+ 

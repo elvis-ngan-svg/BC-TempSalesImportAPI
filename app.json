@@ -1,0 +1,32 @@
+{
+  "id": "b7e3c9a1-4f2d-4e8b-9c1a-6d5e8f0a2b3c",
+  "name": "Temp Sales Order Import API",
+  "publisher": "ElvisNgan",
+  "version": "1.0.0.0",
+  "brief": "Staging Import API for Sales Orders / Quotes in Business Central",
+  "description": "Custom API that imports cleaned sales data into temporary staging tables. Users can later manually convert the staged data into real Sales Orders or Sales Quotations.",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "https://github.com/elvis-ngan-svg/BC-TempSalesImportAPI",
+  "url": "https://github.com/elvis-ngan-svg/BC-TempSalesImportAPI",
+  "logo": "",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "23.0.0.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149 
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "12.0",
+  "features": [
+    "NoImplicitWith"
+  ]
+}
