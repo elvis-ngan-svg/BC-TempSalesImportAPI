@@ -4,6 +4,15 @@ A clean, production-ready **Custom API + Staging Table** solution for Microsoft 
 
 ---
 
+<img width="1168" height="784" alt="dO3Ie" src="https://github.com/user-attachments/assets/3d36e17b-0ba2-4596-92c6-db2825ff950f" />
+<img width="1168" height="784" alt="tjhxd" src="https://github.com/user-attachments/assets/5ee62e1b-3160-4873-a082-9aee7a46746c" />
+<img width="1168" height="784" alt="9AaJs" src="https://github.com/user-attachments/assets/ced69140-ef57-4579-8801-20a3706579bc" />
+<img width="1168" height="784" alt="rNpmK" src="https://github.com/user-attachments/assets/2ae7e252-5522-4b62-9e50-44773916f2a7" />
+
+
+
+---
+
 ## Business Flow
 
 ```
